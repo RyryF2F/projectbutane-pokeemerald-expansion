@@ -737,9 +737,9 @@
 #define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
 #define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
 #define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
-#define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
-#define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
-#define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
+#define FLAG_UNUSED_0x2B9  0x2B9 // If this flag is set, wild encounters will be disabled. debug\overworld.h
+#define FLAG_UNUSED_0x2BA  0x2BA // If this flag is set, trainers will not battle the player unless they're talked to. debug\overworld.h
+#define FLAG_UNUSED_0x2BB  0x2BB // Flag used NO_COLLISION debug\overworld.h
 
 // Event Flags
 #define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
