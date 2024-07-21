@@ -38,8 +38,15 @@ enum
 
 enum
 {
+    GAMEITEM_DEBUG,
+    GAMEITEM_COUNT,    
+};
+
+enum
+{
     WIN_HEADER,
-    WIN_OPTIONS
+    WIN_OPTIONS,
+    WIN_GAME,
 };
 
 #define YPOS_TEXTSPEED    (MENUITEM_TEXTSPEED * 16)
@@ -87,6 +94,11 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_CANCEL]      = gText_OptionMenuCancel,
 };
 
+static const u8 *const sOptionsMenuGameNames[GAMEITEM_COUNT] = 
+{
+    [GAMEITEM_DEBUG] = gText_Debug,
+};
+
 static const struct WindowTemplate sOptionMenuWinTemplates[] =
 {
     [WIN_HEADER] = {
@@ -99,6 +111,15 @@ static const struct WindowTemplate sOptionMenuWinTemplates[] =
         .baseBlock = 2
     },
     [WIN_OPTIONS] = {
+        .bg = 0,
+        .tilemapLeft = 2,
+        .tilemapTop = 5,
+        .width = 26,
+        .height = 14,
+        .paletteNum = 1,
+        .baseBlock = 0x36
+    },
+    [WIN_GAME] = {
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 5,
@@ -129,7 +150,16 @@ static const struct BgTemplate sOptionMenuBgTemplates[] =
         .paletteMode = 0,
         .priority = 1,
         .baseTile = 0
-    }
+    },
+    {
+        .bg = 0,
+        .charBaseIndex = 1,
+        .mapBaseIndex = 31,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 1,
+        .baseTile = 0
+    }, 
 };
 
 static const u16 sOptionMenuBg_Pal[] = {RGB(17, 18, 31)};
@@ -287,6 +317,10 @@ static void Task_OptionMenuProcessInput(u8 taskId)
         else
             gTasks[taskId].tMenuSelection = 0;
         HighlightOptionMenuItem(gTasks[taskId].tMenuSelection);
+    }else if (JOY_NEW(R_BUTTON))
+    {
+        gTasks[taskId].func = Task_OptionMenuSave;
+        //SWITCH WINDOWS
     }
     else
     {

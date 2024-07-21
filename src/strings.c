@@ -1491,6 +1491,7 @@ const u8 gText_ABtnRegistrationCounter[] = _("A Button: Registration Counter");
 const u8 gText_ABtnTitleScreen[] = _("A Button: Title Screen");
 const u8 gText_System[] = _("SYSTEM");
 const u8 gText_Game[] = _("GAME");
+const u8 gText_Debug[] = _("DEBUG");
 const u8 gText_TextSpeed[] = _("TEXT SPEED");
 const u8 gText_BattleScene[] = _("BATTLE SCENE");
 const u8 gText_BattleStyle[] = _("BATTLE STYLE");
